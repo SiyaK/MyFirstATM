@@ -76,6 +76,17 @@ public class User {
     }
 
     /**
+     * prinnt the summaty for the accounts for the user
+     */
+    public void printAccountsSummary(){
+        System.out.printf("\n\n%s's accounts summary", this.firstName);
+        for (Account account : this.accounts) {
+            System.out.printf("%d) %s\n", account.getSummaryLine());
+        }
+        System.out.println();
+    }
+
+    /**
      * Check whether a given pin matches the true user pin
      * @param aPin the pin to check
      * @return whether the pin is valid or not
@@ -95,6 +106,5 @@ public class User {
         return false;
     }
 
-    public void printAccountSummary() {
-    }
+
 }

@@ -44,7 +44,7 @@ public class ATM {
 
     public static void printUserMenu(User theUser, Scanner scanner){
         //print a summary of the user's accounts
-        theUser.printAccountSummary();
+        theUser.printAccountsSummary();
         int choice;
 
         do {
@@ -77,20 +77,29 @@ public class ATM {
                 ATM.tranferFunds(theUser, scanner);
                 break;
         }
+        // redisplay this menu unless the user wants to quit
         if(choice != 5){
             ATM.printUserMenu(theUser, scanner);
         }
-    }
 
+
+    }
+    private static void showTransactHistory(User theUser, Scanner scanner) {
+
+    }
+    private static void withdrawFunds(User theUser, Scanner scanner) {
+
+    }
+    private static void depositFunds(User theUser, Scanner scanner) {
+    }
     private static void tranferFunds(User theUser, Scanner scanner) {
     }
 
-    private static void depositFunds(User theUser, Scanner scanner) {
-    }
 
-    private static void withdrawFunds(User theUser, Scanner scanner) {
-    }
 
-    private static void showTransactHistory(User theUser, Scanner scanner) {
-    }
+
+
+
+
+
 }

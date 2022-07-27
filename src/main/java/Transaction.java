@@ -6,6 +6,7 @@ public class Transaction {
      * The amount of this account
      */
     private double amounts;
+
     /**
      * The time and date of this transaction
      */
@@ -43,5 +44,7 @@ public class Transaction {
         //set the memo
         this.memo = memo;
     }
-
+    public double getAmounts() {
+        return this.amounts;
+    }
 }

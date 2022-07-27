@@ -22,8 +22,8 @@ public class Bank {
      */
     public Bank(String name){
         this.name = name;
-        this.user = new ArrayList<User>();
-        this.accounts = new ArrayList<Account>();
+        this.user = new ArrayList<>();
+        this.accounts = new ArrayList<>();
     }
     public String getName() {
         return name;
@@ -35,7 +35,7 @@ public class Bank {
      */
     public String getNewUserUID(){
     //initialize
-        String uid ;
+        StringBuilder uid ;
         Random rng = new Random();
         int len = 6;
         boolean nonUnique;
@@ -44,15 +44,15 @@ public class Bank {
         //continue looping until we get a unique ID
         do {
             //generate the pin
-            uid = "";
+            uid = new StringBuilder();
             for(int c = 0;c < len; c++){
-                uid += ((Integer)rng.nextInt(10)).toString();
+                uid.append(((Integer) rng.nextInt(10)).toString());
             }
 
             // check to make sure its unique
             nonUnique = false;
             for (User u: this.user){
-                if (uid.compareTo(u.getUID()) == 0){
+                if (uid.toString().compareTo(u.getUID()) == 0){
                     nonUnique = true;
                     break;
                 }
@@ -60,12 +60,12 @@ public class Bank {
 
         }while(nonUnique);
 
-        return uid;
+        return uid.toString();
     }
 
     public String getNewAccountUID(){
         //initialize
-        String uid ;
+        StringBuilder uid ;
         Random rng = new Random();
         int len = 10;
         boolean nonUnique;
@@ -74,15 +74,15 @@ public class Bank {
         //continue looping until we get a unique ID
         do {
             //generate the pin
-            uid = "";
+            uid = new StringBuilder();
             for(int c = 0;c < len; c++){
-                uid += ((Integer)rng.nextInt(10)).toString();
+                uid.append(((Integer) rng.nextInt(10)).toString());
             }
 
             // check to make sure its unique
             nonUnique = false;
             for (Account a: this.accounts){
-                if (uid.compareTo(a.getUID1()) == 0){
+                if (uid.toString().compareTo(a.getUID1()) == 0){
                     nonUnique = true;
                     break;
                 }
@@ -90,7 +90,7 @@ public class Bank {
 
         }while(nonUnique);
 
-        return uid;
+        return uid.toString();
     }
 
     /**
